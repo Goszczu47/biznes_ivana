@@ -22,7 +22,7 @@ except Exception as e:
     st.error(f"❌ Problem z połączeniem: {e}")
     st.stop()
 
-st.title("🚀 Manager Warsztatu - Chmura")
+st.title("🚔Auto Kamiński 47🚔")
 
 # --- PANEL BOCZNY: DODAWANIE ---
 with st.sidebar:
