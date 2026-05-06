@@ -4,6 +4,91 @@ from st_supabase_connection import SupabaseConnection
 
 # --- KONFIGURACJA STRONY ---
 st.set_page_config(page_title="Auto Kamiński 47", layout="wide")
+# --- MEGA STYLIZACJA CSS ---
+st.markdown("""
+    <style>
+    /* 1. Import czcionki i ogólny vibe */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    
+    html, body, [data-testid="stAppViewContainer"] {
+        font-family: 'Inter', sans-serif;
+        background-color: #0e1117;
+    }
+
+    /* 2. Animacja wejścia (Fade-in) */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .stApp {
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    /* 3. Stylowe karty dla metryk */
+    [data-testid="stMetric"] {
+        background: linear-gradient(135deg, #1e1e26 0%, #111116 100%);
+        border: 1px solid #3e3e4e;
+        padding: 20px !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    [data-testid="stMetric"]:hover {
+        transform: translateY(-5px);
+        border-color: #ff4b4b; /* Neonowy akcent przy hoverze */
+    }
+
+    /* 4. Przycisk "FIRE" - animowany neon */
+    div.stButton > button:first-child {
+        background: linear-gradient(90deg, #ff4b4b, #ff8181);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
+    }
+    div.stButton > button:first-child:hover {
+        box-shadow: 0 0 25px rgba(255, 75, 75, 0.6);
+        transform: scale(1.02);
+    }
+
+    /* 5. Expander (Menu dodawania) - szklany efekt */
+    .streamlit-expanderHeader {
+        background-color: #1e1e26 !important;
+        border-radius: 10px !important;
+        border: 1px solid #3e3e4e !important;
+        font-weight: bold !important;
+        color: #ff4b4b !important;
+    }
+    .streamlit-expanderContent {
+        background-color: #16161d !important;
+        border-radius: 0 0 10px 10px !important;
+        border: 1px solid #3e3e4e !important;
+        border-top: none !important;
+    }
+
+    /* 6. Edytor tabeli - wygładzenie */
+    [data-testid="stDataEditor"] {
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        border: 1px solid #3e3e4e !important;
+    }
+
+    /* 7. Ukrywanie zbędnych gratów */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Sidebar na telefonie */
+    [data-testid="stSidebar"] {
+        background-color: #16161d;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # --- CSS: UKRYWANIE SIDEBARA NA DESKTOPIE ---
 st.markdown("""
